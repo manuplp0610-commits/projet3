@@ -1,8 +1,27 @@
+// ======================Gérer la navigation============================
+
+//Récupérer les balises
+const btnLogin = document.querySelector(".btnLogin");
+const btnProjet = document.querySelector(".btnProjet");
+const btnContact = document.querySelector(".btnContact");
+// evenement des bouttons de la nav
+btnLogin.addEventListener("click", () => {
+  window.location.href = "login.html";
+});
+
+btnProjet.addEventListener("click", () => {
+  window.location.href = "index.html#portfolio";
+});
+
+btnContact.addEventListener("click", () => {
+  window.location.href = "index.html";
+});
+
 // ================ Création de la galerie dynamique ================
 
 // Variable globale pour stocker les travaux
 let works = [];
-
+//Création de la galerie
 function afficherWorks(data) {
   const gallery = document.querySelector(".gallery");
   gallery.innerHTML = "";
@@ -22,7 +41,7 @@ function afficherWorks(data) {
     gallery.appendChild(figure);
   }
 }
-
+// gestion reponse api
 async function afficherGallery() {
   try {
     const reponse = await fetch("http://localhost:5678/api/works");
@@ -30,13 +49,12 @@ async function afficherGallery() {
     afficherWorks(works);
   } catch (error) {
     console.error("Erreur API :", error);
-    alert("Erreur réseau, impossible de charger les travaux");
   }
 }
 
 afficherGallery();
 
-// ================ Boutons filtre ================
+// ====================== Boutons filtre =======================
 
 function creeBtnFiltres() {
   const gallery = document.querySelector(".gallery");

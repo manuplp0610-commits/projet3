@@ -128,11 +128,16 @@ table {
   border-spacing: 0;
 }
 /** end reset css**/
+* {
+  scroll-behavior: smooth;
+}
 body {
+  background-color: rgba(255, 254, 248, 1);
   max-width: 1140px;
   margin: auto;
   font-family: "Work Sans";
   font-size: 14px;
+  scroll-behavior: smooth;
 }
 header {
   display: flex;
@@ -176,6 +181,7 @@ nav li {
 
 li:hover {
   color: #b1663c;
+  cursor: pointer;
 }
 #introduction {
   display: flex;
@@ -207,9 +213,10 @@ li:hover {
 .filters {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
   margin-bottom: 30px;
 }
+
 .filters button {
   background: white;
   border: 1px solid rgba(29, 97, 84, 1);
@@ -217,11 +224,16 @@ li:hover {
   color: rgba(29, 97, 84, 1);
   height: 37px;
   min-width: 100px;
-  padding: 10px;
+  padding: 10px 20px;
   font-size: 16px;
   font-weight: 700;
-  font-family: "Syne";
+  font-family: "Syne", sans-serif;
   transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 100%;
+  letter-spacing: 0%;
 }
 .filters button:hover {
   cursor: pointer;
@@ -287,4 +299,46 @@ footer nav ul {
   display: flex;
   justify-content: flex-end;
   margin: 2em;
+  background: white;
+}
+.containerLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+.containerLogin h2 {
+  margin: 20px;
+}
+.containerLogin label {
+  margin-bottom: 5px;
+}
+.containerLogin form {
+  display: flex;
+  flex-direction: column;
+  width: 379px;
+}
+.containerLogin input {
+  padding: 5px;
+  font-size: 20px;
+  background: rgba(255, 255, 255, 1);
+  height: 51px;
+  border: none;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+.containerLogin input:focus {
+  outline: none;
+}
+.containerLogin button {
+  background-color: #1d6154;
+  color: white;
+  width: 179px;
+  height: 36px;
+  margin: 0 auto 20px;
+  border-radius: 60px;
+}
+.containerLogin button:hover {
+  cursor: pointer;
 }
