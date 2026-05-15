@@ -1,12 +1,29 @@
+// localStorage page admin
+import { pageAdmin } from "./admin.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  if (isLoggedIn === "true") {
+    pageAdmin();
+  }
+});
+
 // ======================Gérer la navigation============================
 
-//Récupérer les balises
+//Récupérer les bouttons
 const btnLogin = document.querySelector(".btnLogin");
 const btnProjet = document.querySelector(".btnProjet");
 const btnContact = document.querySelector(".btnContact");
 // evenement des bouttons de la nav
 btnLogin.addEventListener("click", () => {
-  window.location.href = "login.html";
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  if (isLoggedIn === "true") {
+    localStorage.removeItem("isLoggedIn");
+    window.location.reload();
+  } else {
+    window.location.href = "login.html";
+  }
 });
 
 btnProjet.addEventListener("click", () => {
@@ -14,7 +31,7 @@ btnProjet.addEventListener("click", () => {
 });
 
 btnContact.addEventListener("click", () => {
-  window.location.href = "index.html";
+  window.location.href = "index.html#contact";
 });
 
 // ================ Création de la galerie dynamique ================

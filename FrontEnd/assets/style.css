@@ -139,6 +139,34 @@ body {
   font-size: 14px;
   scroll-behavior: smooth;
 }
+.banner {
+  background: black;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+i {
+  font-size: 14px;
+  color: white;
+}
+.btnModif {
+  font-family: "Work Sans";
+  font-size: 14px;
+  color: black;
+  margin-left: 30px;
+  padding-bottom: 20px;
+}
+.btnModif:hover {
+  cursor: pointer;
+}
+.btnModif i {
+  font-size: 12px;
+  color: black;
+}
 header {
   display: flex;
   justify-content: space-between;
