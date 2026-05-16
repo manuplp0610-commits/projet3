@@ -8,7 +8,20 @@ document.addEventListener("DOMContentLoaded", () => {
     pageAdmin();
   }
 });
+// $$$$$$$$$$$$$$$$$==aide de chatGPT==$$$$$$$$$$$$$$$$$$$$$$$$$$
+window.addEventListener("load", () => {
+  if (window.location.hash === "#contact") {
+    setTimeout(() => {
+      const section = document.querySelector("#contact");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
 
+        // 🔥 supprime le #contact de l'URL
+        history.replaceState(null, null, " ");
+      }
+    }, 100);
+  }
+});
 // ======================Gérer la navigation============================
 
 //Récupérer les bouttons
@@ -64,6 +77,13 @@ async function afficherGallery() {
     const reponse = await fetch("http://localhost:5678/api/works");
     works = await reponse.json();
     afficherWorks(works);
+    // $$$$$$$$$$$$$$$$$==aide de chatGPT==$$$$$$$$$$$$$$$$$$$$$$$$$$
+    if (window.location.hash === "#contact") {
+      const section = document.querySelector("#contact");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
   } catch (error) {
     console.error("Erreur API :", error);
   }

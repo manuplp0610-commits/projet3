@@ -3,6 +3,7 @@ export function pageAdmin() {
   loginButton();
   removeFilters();
   portfolioTitle();
+  setImage();
 }
 
 // ==================BANNIÈRE=================
@@ -102,10 +103,69 @@ function createModalContent(container, fondModif) {
   btnAjouter.textContent = "Ajouter une photo";
   container.appendChild(btnAjouter);
   btnAjouter.addEventListener("click", () => {
-    console.log("ajoout");
+    title.textContent = "Ajout photo";
+    btnAjouter.textContent = "";
+    galerie.innerHTML = "";
+
+    // bouton retour
+    const btnRetour = document.createElement("button");
+    btnRetour.textContent = "←";
+    btnRetour.className = "btnRetour";
+
+    btnRetour.addEventListener("click", () => {
+      title.textContent = "Galerie photos";
+      galerie.innerHTML = "";
+      btnAjouter.textContent = "Ajouter une photo";
+      afficherGallery(galerie);
+    });
+
+    galerie.appendChild(btnRetour);
+
+    // formulaire
+    const form = document.createElement("form");
+    form.className = "formulairAjout";
+    form.innerHTML = `
+  <div class="zoneAjout">
+    <i class="fa-regular fa-image"></i>
+    <label class="btnajout">
+      + Ajouter photo
+      <input type="file" name="image" hidden required>
+    </label>
+    <p>jpg, png : 4mo max</p>
+  </div>
+
+  <label>Titre</label>
+  <input type="text" name="title" required>
+
+  <label>Catégorie</label>
+  <select name="category" required>
+    <option value=""></option>
+  </select>
+  <button type="submit">Valider</button>
+`;
+
+    galerie.appendChild(form);
+    const select = form.querySelector("select");
+    loadCategories(select);
   });
 }
+// prendre categories de l API
+async function loadCategories(select) {
+  try {
+    const response = await fetch("http://localhost:5678/api/categories");
+    const categories = await response.json();
 
+    categories.forEach((categorie) => {
+      const option = document.createElement("option");
+      option.value = categorie.id;
+      option.textContent = categorie.name;
+
+      select.appendChild(option);
+    });
+  } catch (error) {
+    console.error("Erreur catégories :", error);
+  }
+}
 // ==================API======================
 async function afficherGallery(galerie) {
   try {
@@ -130,7 +190,7 @@ async function afficherGallery(galerie) {
       trash.className = "fa-solid fa-trash trashIcon";
 
       trash.addEventListener("click", () => {
-        console.log("sup");
+        console.log("sup : " + work.title);
       });
 
       // assemblage
@@ -141,4 +201,9 @@ async function afficherGallery(galerie) {
   } catch (error) {
     console.error("Erreur API :", error);
   }
+}
+// ============ SET IMAGES =============
+function setImage(params) {
+  const formulairAjout = document.querySelector(".formulairAjout");
+  formulairAjout.addEventListener();
 }

@@ -271,7 +271,8 @@ button.active {
   flex-direction: column;
 }
 
-#contact input {
+input,
+select {
   height: 50px;
   font-size: 1.2em;
   border: none;
@@ -329,7 +330,8 @@ footer nav ul {
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.08);
   margin-bottom: 20px;
 }
-.containerLogin input:focus {
+input:focus,
+select:focus {
   outline: none;
 }
 .containerLogin button {
