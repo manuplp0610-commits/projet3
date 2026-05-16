@@ -1,0 +1,98 @@
+/* page d acceuil admin */
+.banner {
+  background: black;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+i {
+  font-size: 14px;
+  color: white;
+}
+.btnModif {
+  font-family: "Work Sans";
+  font-size: 14px;
+  color: black;
+  margin-left: 30px;
+  font-weight: normal;
+}
+.btnModif:hover {
+  cursor: pointer;
+}
+
+.btnModif i {
+  font-size: 14px;
+  color: black;
+  font-weight: 600;
+}
+/* page "modifier" admin */
+.fondModif {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+}
+
+/* fenetre de modification */
+.fenetreModif {
+  background: white;
+  width: 530px;
+  height: 620px;
+  border-radius: 10px;
+  padding: 50px 100px;
+  position: relative;
+  text-align: center;
+  margin-top: 100px;
+}
+.fermerModif {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-weight: bold;
+}
+.galeriePhotos {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.galeriePhotosImg {
+  width: 90px;
+  height: 120px;
+  margin-bottom: 30px;
+}
+.titleGallery {
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.btnAjouterPhoto {
+  margin: 40px;
+  background: rgba(29, 97, 84, 1);
+  border-radius: 50px;
+  color: white;
+  padding: 10px 50px;
+  cursor: pointer;
+}
+.imgWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.trashIcon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 14px;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px;
+  cursor: pointer;
+}
